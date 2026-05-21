@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EDGE GROUP CORP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#000;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    font-size:34px;
+    font-weight:800;
+    color:#d4af37;
+    letter-spacing:3px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    font-weight:500;
+}
+
+nav ul li a:hover{
+    color:#d4af37;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    min-height:100vh;
+    position:relative;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 8%;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.78);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-logo{
+    width:220px;
+    margin-bottom:30px;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0px);}
+}
+
+.hero h1{
+    font-size:95px;
+    font-weight:800;
+    line-height:1;
+    background:linear-gradient(to right,#d4af37,#fff0a5,#b8860b);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    margin-top:30px;
+    max-width:850px;
+    font-size:20px;
+    line-height:1.9;
+    color:#ddd;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:40px;
+    padding:18px 45px;
+    background:linear-gradient(to right,#d4af37,#b8860b);
+    color:black;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(212,175,55,0.5);
+}
+
+/* SECTIONS */
+
+section{
+    padding:110px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:55px;
+    color:#d4af37;
+    margin-bottom:70px;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#111;
+    border-radius:25px;
+    padding:40px;
+    border:1px solid rgba(212,175,55,0.15);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#d4af37;
+    box-shadow:0 0 35px rgba(212,175,55,0.15);
+}
+
+.card h3{
+    color:#d4af37;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.card p{
+    color:#bbb;
+    line-height:1.9;
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.project{
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+}
+
+.project img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.project:hover img{
+    transform:scale(1.1);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent,rgba(0,0,0,0.9));
+    display:flex;
+    align-items:flex-end;
+    padding:30px;
+}
+
+.overlay h3{
+    font-size:28px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.stat{
+    background:#111;
+    padding:50px;
+    border-radius:25px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:55px;
+    color:#d4af37;
+}
+
+.stat p{
+    margin-top:15px;
+    color:#bbb;
+}
+
+/* VIDEO */
+
+.video-section video{
+    width:100%;
+    border-radius:25px;
+    margin-top:30px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.9;
+    color:#ccc;
+}
+
+.contact-links{
+    margin-top:40px;
+}
+
+.contact-links a{
+    display:inline-block;
+    margin:10px;
+    padding:16px 35px;
+    border:1px solid #d4af37;
+    border-radius:50px;
+    text-decoration:none;
+    color:#d4af37;
+    transition:0.4s;
+}
+
+.contact-links a:hover{
+    background:#d4af37;
+    color:black;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#777;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:55px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.section-title{
+    font-size:40px;
+}
+
+nav ul{
+    display:none;
+}
+
+.hero-logo{
+    width:150px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">EDGE</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="hero">
+
+<div class="hero-content">
+
+<!-- YOUR LOGO -->
+
+
+<img 
+src="./edge-logo.png"
+class="hero-logo"
+alt="EDGE LOGO"
+>
+
+<h1>EDGE GROUP CORP</h1>
+
+<p>
+Premium Formwork • Steelfixing • Concrete.
+Elite luxury construction solutions built with precision,
+modern innovation, and structural excellence.
+</p>
+
+<a href="#contact" class="btn">
+GET A QUOTE
+</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title">ABOUT EDGE</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Luxury Quality</h3>
+<p>
+Premium construction standards with elite workmanship,
+modern systems, and flawless execution.
+</p>
+</div>
+
+<div class="card">
+<h3>Experienced Team</h3>
+<p>
+Professional construction specialists delivering
+safe, reliable, and precise results.
+</p>
+</div>
+
+<div class="card">
+<h3>Modern Innovation</h3>
+<p>
+Combining engineering excellence with architectural
+luxury and structural performance.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<h2 class="section-title">OUR SERVICES</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Formwork</h3>
+<p>
+Professional formwork systems for residential,
+commercial, and industrial projects.
+</p>
+</div>
+
+<div class="card">
+<h3>Steelfixing</h3>
+<p>
+Precision steel reinforcement installation with
+elite structural standards.
+</p>
+</div>
+
+<div class="card">
+<h3>Concrete</h3>
+<p>
+Luxury concrete finishes designed for durability,
+strength, and premium architectural results.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2 class="section-title">LATEST PROJECTS</h2>
+
+<div class="projects">
+
+<div class="project">
+<img src="https://source.unsplash.com/900x900/?construction">
+<div class="overlay">
+<h3>Commercial Towers</h3>
+</div>
+</div>
+
+<div class="project">
+<img src="https://source.unsplash.com/900x900/?luxury-building">
+<div class="overlay">
+<h3>Luxury Apartments</h3>
+</div>
+</div>
+
+<div class="project">
+<img src="https://source.unsplash.com/900x900/?architecture,concrete">
+<div class="overlay">
+<h3>Premium Structures</h3>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section>
+
+<h2 class="section-title">WHY CHOOSE US</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>250+</h2>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat">
+<h2>15+</h2>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>Client Satisfaction</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Support Team</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- VIDEO -->
+
+<section class="video-section">
+
+<h2 class="section-title">COMPANY SHOWCASE</h2>
+
+<video autoplay muted loop playsinline>
+
+<source
+src="https://cdn.coverr.co/videos/coverr-construction-site-1565512744133?download=1080p"
+type="video/mp4"
+>
+
+</video>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2 class="section-title">CONTACT US</h2>
+
+<p>
+Ready to build your next project with EDGE GROUP CORP?
+Contact us today for premium construction solutions.
+</p>
+
+<div class="contact-links">
+
+<a href="tel:+61400000000">
+CALL NOW
+</a>
+
+<a href="mailto:info@edgegroup.com.au">
+EMAIL US
+</a>
+
+<a href="https://wa.me/61400000000">
+WHATSAPP
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 EDGE GROUP CORP — ALL RIGHTS RESERVED
+</footer>
+
+<!-- API BACKGROUND -->
+
+<script>
+
+async function loadHeroBackground(){
+
+const accessKey = "wBTc4__Eknt2iMDEbTv7IoedsyZ0IaL1agunAR7Xbw0";
+
+const response = await fetch(
+`https://api.unsplash.com/photos/random?query=construction,luxury,building&orientation=landscape&client_id=${accessKey}`
+);
+
+const data = await response.json();
+
+document.getElementById("hero").style.backgroundImage =
+`url(${data.urls.full})`;
+
+}
+
+loadHeroBackground();
+
+</script>
+
+</body>
+</html>
+
+
+
